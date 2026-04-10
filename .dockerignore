@@ -1,0 +1,45 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Environment
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+test-example.js
+
+# Docs
+*.md
+SETUP.md
+README.md
+QUICK_START.md
+TROUBLESHOOTING.md
+EXAMPLES.md
+FILES_REFERENCE.md
+INDEX.md
+START_HERE.md
+
+# Misc
+.tmp/
+temp/
+*.log
+logs/
+Dockerfile
+docker-compose.yml

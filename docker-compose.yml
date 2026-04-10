@@ -1,0 +1,41 @@
+services:
+  db-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: db-mcp:latest
+    container_name: db-mcp-server
+
+    # Loads all variables from .env automatically
+    env_file:
+      - .env
+
+    # Required for stdio transport (MCP)
+    stdin_open: true
+    tty: true
+
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD", "node", "-e", "process.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+    networks:
+      - db-network
+
+networks:
+  db-network:
+    driver: bridge
